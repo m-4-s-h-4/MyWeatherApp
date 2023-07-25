@@ -10,21 +10,35 @@ import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
+val DarkGray = Color(0xFF666666)
+val Gray = Color(0xFF9E9E9E)
+val LightGray = Color(0xFFF5F5F5)
+val Beige = Color(0xFFD5D5B0)
+val Black = Color(0xFF202020)
+
+
 private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+    primary = DarkGray,
+    secondary = Gray,
+    tertiary = Beige,
+    surface = Black,
+    onSurface = LightGray
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
+    primary = LightGray,
+    secondary = Gray,
+    tertiary = Beige,
+    surface = Black,
+    onSurface = DarkGray
+)
+
 
     /* Other default colors to override
     background = Color(0xFFFFFBFE),
@@ -35,7 +49,6 @@ private val LightColorScheme = lightColorScheme(
     onBackground = Color(0xFF1C1B1F),
     onSurface = Color(0xFF1C1B1F),
     */
-)
 
 @Composable
 fun MyWetherAppTheme(

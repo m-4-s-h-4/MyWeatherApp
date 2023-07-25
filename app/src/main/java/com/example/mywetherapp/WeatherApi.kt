@@ -11,6 +11,9 @@ interface WeatherApi {
     ): WeatherResponse
 
     @GET("data/2.5/forecast")
-    suspend fun getForecast(@Query("q") city: String, @Query("appid") apiKey: String): ForecastResponse
+    suspend fun getForecast(
+        @Query("q") city: String,
+        @Query("appid") apiKey: String
+    ): ForecastResponse
 }
 
