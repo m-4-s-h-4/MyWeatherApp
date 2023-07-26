@@ -17,25 +17,25 @@ import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
 val DarkGray = Color(0xFF666666)
-val Gray = Color(0xFF9E9E9E)
+val Gray = Color(0xFFA7A7A7)
 val LightGray = Color(0xFFF5F5F5)
-val Beige = Color(0xFFD5D5B0)
+val Red = Color(0xFFFF5537)
 val Black = Color(0xFF202020)
 
 
 private val DarkColorScheme = darkColorScheme(
     primary = DarkGray,
     secondary = Gray,
-    tertiary = Beige,
+    tertiary = Black,
     surface = Black,
     onSurface = LightGray
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = LightGray,
-    secondary = Gray,
-    tertiary = Beige,
-    surface = Black,
+    primary = Gray,
+    secondary = LightGray,
+    tertiary = DarkGray,
+    surface = Gray,
     onSurface = DarkGray
 )
 
@@ -58,10 +58,7 @@ fun MyWetherAppTheme(
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
-        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
-            val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-        }
+
 
         darkTheme -> DarkColorScheme
         else -> LightColorScheme
@@ -70,8 +67,8 @@ fun MyWetherAppTheme(
     if (!view.isInEditMode) {
         SideEffect {
             val window = (view.context as Activity).window
-            window.statusBarColor = colorScheme.primary.toArgb()
-            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
+            window.statusBarColor = colorScheme.surface.toArgb()
+            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = !darkTheme
         }
     }
 
