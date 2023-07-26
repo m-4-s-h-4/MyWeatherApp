@@ -1,4 +1,4 @@
-package com.example.mywetherapp
+package com.example.mywetherapp.data
 
 data class ForecastResponse(
     val city: City,

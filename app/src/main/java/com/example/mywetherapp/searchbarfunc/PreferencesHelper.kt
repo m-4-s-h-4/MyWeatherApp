@@ -1,4 +1,4 @@
-package com.example.mywetherapp
+package com.example.mywetherapp.searchbarfunc
 
 import android.content.Context
 import android.content.SharedPreferences

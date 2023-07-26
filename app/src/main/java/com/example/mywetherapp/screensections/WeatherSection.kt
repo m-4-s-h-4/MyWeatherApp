@@ -1,4 +1,4 @@
-package com.example.mywetherapp
+package com.example.mywetherapp.screensections
 
 import android.content.Intent
 import androidx.compose.foundation.Image
@@ -18,6 +18,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.LiveData
+import com.example.mywetherapp.ForecastActivity
+import com.example.mywetherapp.R
+import com.example.mywetherapp.data.WeatherResponse
 
 @Composable
 fun WeatherSection(

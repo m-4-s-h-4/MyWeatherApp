@@ -1,4 +1,4 @@
-package com.example.mywetherapp
+package com.example.mywetherapp.screensections
 
 import android.content.Context
 import androidx.compose.runtime.Composable

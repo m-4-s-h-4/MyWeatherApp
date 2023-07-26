@@ -1,9 +1,12 @@
-package com.example.mywetherapp
+package com.example.mywetherapp.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.mywetherapp.api.RetrofitInstance
+import com.example.mywetherapp.data.ForecastResponse
+import com.example.mywetherapp.data.WeatherResponse
 import kotlinx.coroutines.launch
 
 class WeatherViewModel : ViewModel() {

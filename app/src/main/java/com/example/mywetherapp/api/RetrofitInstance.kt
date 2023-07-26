@@ -1,4 +1,4 @@
-package com.example.mywetherapp
+package com.example.mywetherapp.api
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
