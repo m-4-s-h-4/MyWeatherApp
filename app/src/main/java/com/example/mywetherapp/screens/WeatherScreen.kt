@@ -20,6 +20,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.mywetherapp.searchbarfunc.AutocompleteTextField
@@ -27,11 +28,14 @@ import com.example.mywetherapp.searchbarfunc.PreferencesHelper
 import com.example.mywetherapp.screensections.WeatherSection
 import com.example.mywetherapp.viewmodel.WeatherViewModel
 
+
+//added closing keyboard on search as discussed
 @Composable
 fun WeatherScreen() {
     val viewModel: WeatherViewModel = viewModel()
     val context = LocalContext.current
     val prefsHelper = PreferencesHelper(context)
+    val focusManager = LocalFocusManager.current
 
     LaunchedEffect(key1 = true) {
         viewModel.getWeather("Barcelona", "c72510a22fc769a119e1f602964d5835", isSearch = true)
@@ -42,6 +46,7 @@ fun WeatherScreen() {
     fun onSearchButtonClick() {
         viewModel.getWeather(searchText, "c72510a22fc769a119e1f602964d5835", isSearch = true)
         prefsHelper.saveSearchQuery(searchText)
+        focusManager.clearFocus()
     }
 
     val searchHistory = prefsHelper.getSearchHistory()
